@@ -1,3 +1,7 @@
+var logomodel, ar800glb;
+var clock = new THREE.Clock();
+var mixers = [];
+
 function isMobile() {
     return /Android|mobile|iPad|iPhone/i.test(navigator.userAgent);
 }
