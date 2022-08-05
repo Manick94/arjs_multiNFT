@@ -75,7 +75,7 @@ function start2(markerUrls, video, input_width, input_height, canvas_draw, rende
     // Load GLTF models for multi NFT tracking
     var threeGLTFLoader = new THREE.GLTFLoader();
 
-    logo_glb.load("../Data/models/logov2.glb", function (gltf) {
+    threeGLTFLoader.load("../Data/models/AR800_v2.glb", function (gltf) {
         model1 = gltf.scene.children[0];
         // model1.position.z = 0;
         // model1.position.x = 100;
@@ -233,27 +233,31 @@ function start2(markerUrls, video, input_width, input_height, canvas_draw, rende
                 // sphere.visible = false;
                 // cube.visible = false;
                 // cone.visible = false;
-                logomodel.visible = false;
-                ar800model.visible = false;
+                // logomodel.visible = false;
+                // ar800model.visible = false;
+                model1.visible = false;
         } else {
             if (index == 0) {
                 // sphere.visible = true;
                 // cube.visible = false;
                 // cone.visible = false;
-                logomodel.visible = true;
-                ar800model.visible = false;
+                // logomodel.visible = true;
+                // ar800model.visible = false;
+                model1.visible = true;
             }
             else if(index == 1) {
                 // sphere.visible = false;
                 // cube.visible = true;
                 // cone.visible = false;
-                logomodel.visible = false;
-                ar800model.visible = false;
+                // logomodel.visible = false;
+                // ar800model.visible = false;
+                model1.visible = true;
             }
             else if(index == 2) {
-                sphere.visible = false;
-                cube.visible = false;
-                cone.visible = true;
+                // sphere.visible = false;
+                // cube.visible = false;
+                // cone.visible = true;
+                model1.visible = true;
             }
                 // interpolate matrix
                 for (var i = 0; i < 16; i++) {
