@@ -73,7 +73,7 @@ function start2(markerUrls, video, input_width, input_height, canvas_draw, rende
 
 
     // Load GLTF models for multi NFT tracking
-    var logo_glb = new THREE.GLTFLoader();
+    var threeGLTFLoader = new THREE.GLTFLoader();
 
     logo_glb.load("../Data/models/logov2.glb", function (gltf) {
         model1 = gltf.scene.children[0];
