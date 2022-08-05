@@ -38,7 +38,7 @@ var setMatrix = function (matrix, value) {
 
 //var worker;
 function start(markerUrls, video, input_width, input_height, canvas_draw, render_update, track_update) {
-    worker = new Worker('wasm_worker/artoolkit.wasm_multi_worker.js');
+    // worker = new Worker('wasm_worker/artoolkit.wasm_multi_worker.js');
     worker = new Worker("../../js/artoolkit.worker.js");
     worker.onmessage = function(ev) {
         start2(markerUrls, video, input_width, input_height, canvas_draw, render_update, track_update);
