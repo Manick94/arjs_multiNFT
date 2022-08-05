@@ -1,4 +1,4 @@
-var logomodel, ar800glb;
+var model1, model2, model3;
 var clock = new THREE.Clock();
 var mixers = [];
 
@@ -38,7 +38,7 @@ var setMatrix = function (matrix, value) {
 
 //var worker;
 function start(markerUrls, video, input_width, input_height, canvas_draw, render_update, track_update) {
-    // worker = new Worker('wasm_worker/artoolkit.wasm_multi_worker.js');
+    worker = new Worker('wasm_worker/artoolkit.wasm_multi_worker.js');
     worker = new Worker("../../js/artoolkit.worker.js");
     worker.onmessage = function(ev) {
         start2(markerUrls, video, input_width, input_height, canvas_draw, render_update, track_update);
@@ -76,11 +76,13 @@ function start2(markerUrls, video, input_width, input_height, canvas_draw, rende
     var logo_glb = new THREE.GLTFLoader();
 
     logo_glb.load("../Data/models/logov2.glb", function (gltf) {
-        logomodel = gltf.scene.children[0];
-        logomodel.position.z = 0;
-        logomodel.position.x = 100;
-        logomodel.position.y = 100;
+        model1 = gltf.scene.children[0];
+        // model1.position.z = 0;
+        // model1.position.x = 100;
+        // model1.position.y = 100;
 
+        model1.position.set(100, 100, 0);
+        
         var animation = gltf.animation[0];
         var mixer = new THREE.AnimationMixer(model);
         mixers.push(mixer);
@@ -88,41 +90,8 @@ function start2(markerUrls, video, input_width, input_height, canvas_draw, rende
         action.play();
 
         root.matrixAutoUpdate = false;
-        root.add(logomodel);
+        root.add(model1);
     });
-
-
-    var ar800glb = new THREE.GLTFLoader();
-
-    ar800glb.load("..Data/models/AR800.glb", function (gltf){
-        ar800model = gltf.scene.children[1];
-        ar800model.position.z = 0;
-        ar800model.position.x = 100;
-        ar800model.position.y = 100;
-
-        var animation = gltf.animations[0];
-            var mixer = new THREE.AnimationMixer(model);
-            mixers.push(mixer);
-            var action = mixer.clipAction(animation);
-            action.play();
-
-            root.matrixAutoUpdate = false;
-            root.add(ar800model);
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
